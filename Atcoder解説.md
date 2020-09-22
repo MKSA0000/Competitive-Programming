@@ -47,3 +47,43 @@
     >   (3, 3)
     > ```
     > 2. https://qiita.com/u2dayo/items/386142030a70d2db4e58
+
+* ABC 039 D 画像処理
+    > S->ImgSとする
+    > 逆写像f^(-1)をGreedy searchで実装
+    > S != Inv(ImgS)ならImpossible
+
+* AGC 014 B Unplanned Queries
+    > 接続辺をdirectに(u,v)で結んだ図を書いてみる <br>
+    > どうやらすべての頂点についてrankが2nであることが必要十分ぽい <br>
+    > GraphはTreeなのでDirectEdgesのうちいくらかを削除するが，削除する際にいい感じに回るから．<br>
+    > 想定解法はLCAを使ってdist(u,v) = dist(r,u) + dist(r,v) - 2*dist(lc,u==v)になるからmod2でいい感じに処理できる <br>
+
+* AGC 032 B Balanced Neighbors
+    > 完全グラフからけずってゆく <br>
+    > ### 教訓 構築系は
+    > 1.    ゼロから追加
+    > 2.    完全状態から削減
+
+* CODEFESTIVAL 2017 Final C Time Gap
+    > N~50と2**50に見えるがそうではない．<br>
+    > 3回以上登場すれば答えはゼロ確定 <br>
+    > 2回登場するときもd,24-dにバラして確定 <br>
+    > 残った時刻について全探索しても2**12で余裕 <br>
+    > ### time.max() - time.min()の差分を考えましょう!! e.g.: diff(22,0) = 2 <br>
+
+* ARC 069 D Menagerie
+    > 最初の2種類を決めたらあとは一意に定まる-> O(4) <br>
+    > 演算規則を考えるのがめんどい <br>
+    > 構成し終えたら全部チェックして合ってたらOK <br>
+
+* ARC 097 D Equals
+    > 典型的なgroupingの問題 <br>
+    > 無向グラフを考えて，無向辺でつながっているgroup同士で数値の行き来は自由 <br>
+    > 理想形({1,,,N})とグループごとでのsetを作りintersectで共通部分を取れば行ける <br>
+
+* ABC 1-6 D AtCoder Express 2
+    > N ~ 500で狭いのでN**2のi->jテーブルを作って<br>
+    > (i,j) -> (x,y)の長方形に含まれる列車を数える，２次元累積和使えばO(1)でqueryを処理できる <br>
+    > accum2Dのクラス作った，sum_squareも <br>
+
