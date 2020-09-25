@@ -87,3 +87,26 @@
     > (i,j) -> (x,y)の長方形に含まれる列車を数える，２次元累積和使えばO(1)でqueryを処理できる <br>
     > accum2Dのクラス作った，sum_squareも <br>
 
+* ABC 152 E Flatten
+    > Pythonなら脳死で通る <br>
+    > ## LCM/GCDの計算方法 <br>
+    > ### 数Xを素因数分解してmin(lp[i],rp[i]),max(lp[i],rp[i])をprime-wiseにかければgcd/lcmが出る <br>
+    
+* ABC 073 D joisino's travel
+    > WarshallFloydで全点間最短経路->旅行する頂点を全部回す <br>
+    > WarshallFloydのクラスをようやく作ったO(V**3) <br>
+    > next_permutation(v.begin(),b.end())の使い方を覚えた do while <br>
+
+* ABC 168 E Count Median
+    > 最小値のMedianが取りうるMedianの下限 <br>
+    > 最大値のMedianが取りうるMedianの上限は予想できる <br>
+    > NがEvenかOddかで答えがだいたい２倍程度違う <br>
+    > あとはindexを適当に調節するだけ <br>
+
+* AGC 020 B Ice Rink Game
+    > 各Roundのあとの生存人数をI[i]で管理する <br>
+    > 計算量は各round O(1)で間に合う <br>
+    > 下限は max(A[i],A[i]*ceil(I[i+1][0]/A[i])) <br>
+    > 上限は A[i]*(floor(I[i+1][1] + 1)) <br>
+    > I[i][0] > I[i][1]でアウトbreak  <br>
+    > 面白い問題 <br>
