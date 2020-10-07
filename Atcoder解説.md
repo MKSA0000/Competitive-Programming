@@ -110,3 +110,27 @@
     > 上限は A[i]*(floor(I[i+1][1] + 1)) <br>
     > I[i][0] > I[i][1]でアウトbreak  <br>
     > 面白い問題 <br>
+
+* ABC 119 D Lazy Faith
+    > STLのLower_boundで検索できる 
+    > 近くにある神社(up to 2)と寺(up to 2)を全探索
+
+* AGC 039 B Graph Partition
+    > むずすぎ３日悩んだ
+    > dfsでunflodはunfoldの方向指定ができないので罪
+    > 結果的に全点についてdfsして最大距離求める事になった
+    > 想定解はWarshall-Floydで全点間距離を求めてmax(dist[i][j])出だせる
+    > warshall-Floyd == 全点dfsのmax更新　の知見を得た
+    
+* AGC 047 A Integer Product
+    > めんどくさい　頭使う問題じゃない...
+    > ただの誤差論 double使うときはprecise converterと作る必要がある
+    > dotがある場合のconverterまでは実装した
+
+* AGC 031 B Reversi
+    > 方針は昔から建てられていたが全然通らなかった
+    > 同じ数で分解してi番目のpositionにいる時点で最大何種類の塗り方が可能かdpする
+    > 勘違いしていたのはC_{i] < Sizeof Inputだと思ってたこと
+    > あとMOD取るのも最初忘れていた
+    > 実践だと通せないかも
+
