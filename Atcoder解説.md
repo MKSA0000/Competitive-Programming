@@ -121,7 +121,7 @@
     > 結果的に全点についてdfsして最大距離求める事になった <br>
     > 想定解はWarshall-Floydで全点間距離を求めてmax(dist[i][j])出だせる <br>
     > warshall-Floyd == 全点dfsのmax更新　の知見を得た <br>
-    
+
 * AGC 047 A Integer Product
     > めんどくさい　頭使う問題じゃない... <br>
     > ただの誤差論 double使うときはprecise converterと作る必要がある <br>
@@ -134,3 +134,6 @@
     > あとMOD取るのも最初忘れていた <br>
     > 実践だと通せないかも <br>
 
+* ABC 059 C Sequence
+    > 適当にやったら解けてしまった <br>
+    > 初項を正にするか負にするかで2つ貪欲で調べて終わり <br>
