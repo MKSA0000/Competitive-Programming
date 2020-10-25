@@ -137,3 +137,30 @@
 * ABC 059 C Sequence
     > 適当にやったら解けてしまった <br>
     > 初項を正にするか負にするかで2つ貪欲で調べて終わり <br>
+
+* ARC 030 B ツリーグラフ
+    > start indexが指定されていることを忘れていた，WAの嵐 <br>
+    > 始点からbfsで根付き木に変換，後はLCAで一個ずつ頂点を追加していくだけ <br>
+
+* ABC 128 D Equeue
+    > 競プロの定石「操作は最後にまとめて」or「順序の可換性」<br>
+    > 拾う数をT,take from left, take from right をそれぞれ定めて探索 R**3*logr程度 <br>
+
+* ABC 117 D XXOR
+    > bit-wise探索
+    > 上の位からbitを建てるか考える, bitsetは速いので毎回to ulongに変換しても間に合う <br>
+    > bitwiseにゼロの個数とイチの個数を数えてXORするから多いほうと反対のbitを選べば良い，このときKより大きくなるとアウトになる点にだけ注意する <br>
+    > これが最適になる理由は考察していません． <br>
+    > 上から数えたほうが得られるscoreが大きいので下から決定はありえんだろう，多分 <br>
+
+* ABC 100 D Patisserie ABC
+    > max(abs(sum x_ki)+abs(sum y_ki) + abs(sum z_ki)) <br>
+    > ただの数学的式変形，非自明なんだが..... <br>
+    > 変形すると max (+- x_ki +- y_ki +- z_ki)になる <br>
+    > 要暗記 <br>
+
+* ## 競プロ定石(for binary search)
+    > min{max(F)}系の問題は maxFをbinary searchで決め打ちすればO(logN)でかなり自由度が高くなる <br>
+    > minmaxF: 最大値の最小化 <br>　
+    > 直近ではCDF Bandit in a city 最終的に捕まる数をFとすれば　すべてのleafでF人以下となるものを構成できれば良い <br>
+    > 別の類題はABC E-Logs　構成できるLog Lengthを Fで決め打ちする <br>
