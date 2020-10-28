@@ -164,3 +164,68 @@
     > minmaxF: 最大値の最小化 <br>　
     > 直近ではCDF Bandit in a city 最終的に捕まる数をFとすれば　すべてのleafでF人以下となるものを構成できれば良い <br>
     > 別の類題はABC E-Logs　構成できるLog Lengthを Fで決め打ちする <br>
+
+* ABC 032 C 列
+    > 最近水色50%帯の問題で停滞気味...最低一日１ACはしたい <br>
+    > 尺取り法の典型問題 <br>
+    > 尺取り法マスターしよう <br>
+
+* ## 尺取り法
+    > [left,right)の区間で考える left==rightなら空集合 <br>
+    > leftのインクリメントをfor loopに吸収させてrightのインクリメントとleft==rightの処理だけ考える <br>
+    > 基本的にleft == rightなら処理を初期化してright++でOK <br>
+    > leftのインクリメントが自動なのでfor loopの最後でleft++処理の下準備をしておく <br>
+    > rightそのもので条件が満たされるときright+1して半開区間のincrementを実行する <br>
+    > ```c++
+    > signed main(){
+    > int N,K; cin >> N >> K;
+    > vector<int> vec(N);
+    > bool zflag = false;
+    > rep(i,N){
+    >     cin >> vec[i];
+    >     if(vec[i] == 0) zflag = true;
+    > }
+    > 
+    > auto chakutori = [&](){
+    >     int right = 0;
+    >     int val = 1;
+    >     int res = 0;
+    >     for(int left = 0; left < N; left++){
+    >         while(right < N && val * vec[right] <= K){
+    >             val *= vec[right];
+    >             right += 1;
+    >             
+    >             res = max(res,right-left);
+    >         }
+    > 
+    >         if(right == left){
+    >             val = vec[right];
+    >             right++;
+    >         }else{
+    >             val /= vec[left];
+    >             left++;
+    >         }
+    >     }
+    >     return res;
+    > };
+    > int ans = chakutori();
+    > if(zflag){
+    >     ans = N;
+    > }
+    > cout << ans << endl;
+    > ``` 
+    > ### コードスニペット２号
+    > ```c++
+    > int right = 0;
+    > for(int left = 0; left < n; left++){
+    >   while(right < n && 条件){
+    >     rightを右に動かす処理
+    >   }
+    > 
+    >   何かしらの処理
+    > 
+    >   if(left == right){   // leftがrightに追いついたら
+    >     どうにかする
+    >   }
+    > }
+    > ```
