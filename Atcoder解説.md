@@ -169,6 +169,8 @@
     > 最近水色50%帯の問題で停滞気味...最低一日１ACはしたい <br>
     > 尺取り法の典型問題 <br>
     > 尺取り法マスターしよう <br>
+    > https://scrapbox.io/pocala-kyopro/%E3%81%97%E3%82%83%E3%81%8F%E3%81%A8%E3%82%8A%E6%B3%95 <br>
+
 
 * ## 尺取り法
     > [left,right)の区間で考える left==rightなら空集合 <br>
@@ -229,3 +231,28 @@
     >   }
     > }
     > ```
+
+* Tenka1 2014 Preliminary B Eternal Static Final
+> DPの典型問題，区間の指定で迷って時間をかけてしまった <br>
+> 基本競プロで範囲を"プログラムする"ときは半開区間[l,r)で考える，クエリに答えるときだけ調節する <br>
+> 今回の範囲はdp[i]を[0,i)までのfrac_spellの組み合わせの数とした <br>
+> 即ち，[0,i]を埋め尽くすfrac_spellの順列の数 <br>
+> str.substr(offset,count)なのでこのsubstrが取り出す範囲は[offset,offset+count)となることに注意！！->範囲の右端が飛び出ることはない <br>
+
+* ABC 098 D Xor Sum 2
+> ## 競プロ定石 a + b - (a xor b) = 2 * (a and b)
+> が成立するから一般に a xor b <= a + bが成り立つ <br>
+> 等号成立条件はbがaのビットを一つも下げないこと <br>
+> [L,R]でRを増やしてゆくとき等号成立条件はstrictly stricterに変化してゆくので[L,R]で成立するならばその中では全部成立する <br>
+> 尺取り法が使える <br>
+> 尺取り法の定石を抑えよう <br>
+
+* Codefest 2016 C
+> 左右から上を抑えてゆく，各山についてPossible Range [mi,Mi]を定めておいてviolationが発生したら終わり <br>
+
+* ABC 142 E Get Everything
+> Nが12と小さいのでNについてbit全探索を考える <br>
+> まず状態をxxxoooxoxoというように開けられる宝箱の位置がtrueになるようなbitsetを考える <br>
+> 各鍵を使って遷移できる状態を鍵ごとに辺として張る <br>
+> 即ち開けられる宝箱の状態bitsetをノードとして鍵を買うことによる遷移を辺とするグラフ <br>
+> あとはxxxxxxからooooooへDjikstraで探索，最小値を出して終わり <br>
