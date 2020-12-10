@@ -1,4 +1,4 @@
-#include"INCLUDES.h"
+#include"../INCLUDES.h"
 
 void solve(string s){
 

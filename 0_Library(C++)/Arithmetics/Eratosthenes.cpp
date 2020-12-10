@@ -1,20 +1,22 @@
 #include"../INCLUDES.h"
+
 class LargeNumber {
 private:
 	bool is_prime[1000000 + 13];// Up to 1e6 + 13
 	vector<long long> Prime_table;
 public:
+
+	LargeNumber() {
+		Eratosthenes();
+		return;
+	}
 	vector<long long> Eratosthenes(const long long N = 1000007) { // return primes up to N
-		for (int i = 0; i <= N; i++)
-		{
+		for (int i = 0; i <= N; i++) {
 			is_prime[i] = true;
 		}
-		for (int i = 2; i <= N; i++)
-		{
-			if (is_prime[i])
-			{
-				for (int j = 2 * i; j <= N; j += i)
-				{
+		for (int i = 2; i <= N; i++) {
+			if (is_prime[i]) {
+				for (int j = 2 * i; j <= N; j += i) {
 					is_prime[j] = false;
 				}
 				Prime_table.emplace_back(i);
@@ -41,7 +43,6 @@ public:
 
 		return mp;
 	}
-
 
 	bool isPrime(long long x) {
 		if (x == 0 || x == 1) {

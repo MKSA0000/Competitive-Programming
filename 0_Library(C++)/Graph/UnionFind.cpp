@@ -18,13 +18,15 @@ using namespace std;
 
 class UnionFind {
 protected:
-    vector<vector<int>> Graph;// {ID,Number,ParentID,Height}
+    vector<vector<int>> Graph;// {ID,Value,ParentID,Height}
     vector<bool> isClosed;
+    vector<int> gsize;
 public:
     void push(int x) {
         int i = Graph.size();
         Graph.push_back({ i,x,i,1 });
         isClosed.push_back(false);
+        gsize.push_back(1);
     }
     void unite(int x, int y) {
         if(root(x) == root(y)){
@@ -35,15 +37,21 @@ public:
         int hy = Graph[root(y)][3];
         if (hx < hy) {
             Graph[root(x)][2] = root(y);
+            gsize[root(y)] += gsize[root(x)];
+            gsize[root(x)] = -1;
             flatten(x, root(y));
         }
         else if(hx == hy){
             Graph[root(y)][2] = root(x);
+            gsize[root(x)] += gsize[root(y)];
+            gsize[root(y)] = -1;
             Graph[root(x)][3]++;
             flatten(y, root(x));
         }
         else {
             Graph[root(y)][2] = root(x);
+            gsize[root(x)] += gsize[root(y)];
+            gsize[root(y)] = -1;
             flatten(y, root(x));
         }
     }
@@ -67,6 +75,22 @@ public:
         }
        
         return parentid;
+    }
+    int count_groups(){
+        int cnt = 0;
+        for(int i = 0; i < Graph.size(); i++){
+            if(Graph[i][2] == Graph[i][0]){
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+    vector<vector<int>> group_indices() {
+        vector<vector<int>> groups(Graph.size());
+        for (int i = 0; i < Graph.size(); i++) {
+            groups[root(i)].push_back(i);
+        }
+        return groups;
     }
 };
 

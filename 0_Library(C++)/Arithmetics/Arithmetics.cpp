@@ -1,23 +1,12 @@
 #include"../INCLUDES.h"
 
-int original_pow(int a, int b) {
+int opow(int a, int b) {
 	int ans = 1;
 	rep(i, b) {
 		ans *= a;
 	}
 
 	return  ans;
-}
-
-int gcd_of_all(vi v){
-  int l = v.size();
-
-  int temp = v[0];
-  for(int i = 0; i < l ; i++){
-    temp = gcd(temp,v[i]);
-  }
-
-  return temp;
 }
 
 int gcd(int a, int b) {
@@ -32,6 +21,18 @@ int gcd(int a, int b) {
 
 	return gcd(b % a, a);
 }
+
+int gcd_of_all(vi v){
+  int l = v.size();
+
+  int temp = v[0];
+  for(int i = 0; i < l ; i++){
+    temp = gcd(temp,v[i]);
+  }
+
+  return temp;
+}
+
 
 int lcm(int a, int b){
 	int GCD = gcd(a,b);

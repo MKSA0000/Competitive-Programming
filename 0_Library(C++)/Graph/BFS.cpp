@@ -1,6 +1,6 @@
 #include"../INCLUDES.h"
 
-pii add(const pair<int,int>& obj1, const pair<int,int>& obj2) {
+pair<int,int> add(const pair<int,int>& obj1, const pair<int,int>& obj2) {
     int x = obj1.first + obj2.first;
     int y = obj1.second + obj2.second;
     pii ret = { x,y };
